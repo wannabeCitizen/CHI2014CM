@@ -37,8 +37,8 @@ function randomData() {
     return data;
 }
 
-function drawBar(html, data) {
-    
+function drawBar(html : d3.selection, data) {
+        
     var s = data + ' percentile';
     html.textContent = s;
 }
@@ -50,7 +50,33 @@ window.onload = () => {
 
     var threeDims = [Math.round(Math.random() * 100), Math.round(Math.random() * 100), Math.round(Math.random() * 100)];
 
+    var threeDimCaptions = ["attending sessions", "meeting people", "exploring the city"];
+
     d3.selectAll('.percentile ').data( threeDims ).each(function (d) { drawBar(this, d) });
 
+    var maxVal = Math.max.apply(null, threeDims);
+    var maxIndex = threeDims.indexOf(maxVal);
+
+    var minVal = Math.min.apply(null, threeDims);
+    var minIndex = threeDims.indexOf(minVal);
+
+
+    var firststr = "Okay";
+    if (maxVal > 50)
+        firststr = "Good";
+    if (maxVal > 80)
+        firststr  = "Excellent";
+
+    d3.select("#p4").html(firststr);
+    d3.select("#a4").html( threeDimCaptions[ maxIndex] );
+
+    var secondstr = "try to do a little more ";
+    if (minVal < 50)
+        secondstr = "improve your ";
+    if (minVal < 20)
+        secondstr = "spend a little more ";
+
+    d3.select("#p5").html(secondstr);
+    d3.select("#a5").html(threeDimCaptions[minIndex]);
 
 };
