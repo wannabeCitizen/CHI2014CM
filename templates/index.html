@@ -5,21 +5,22 @@
     <meta charset="utf-8" />
     <title>TypeScript HTML App</title>
     <link href="{{ url_for('static', filename='css/myStyle.css') }}" rel="stylesheet">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 </head>
 <body>
     <img src="{{ url_for('static', filename='img/CHI2014.png') }}"/>
     <img src="{{ url_for('static', filename='img/Logo.png') }}"/>
+
     <div id="content">Compared to other attendees, you are in the:</div>
     <!-- We'll now do one PAIR of each of these: -->
-    <div class="sparkline" id="s1"></div>
+    <div class="sparkle" id="s1"></div>
     <div class="percentile" id="p1">23rd Percentile</div>
     <div class="activity_type">Technical Content</div>
-
-    <div class="sparkline" id="s2"></div>
+    <div class="sparkle" id="s2"></div>
     <div class="percentile" id="p2">23rd Percentile</div>
     <div class="activity_type">Hallway</div>
 
-    <div class="sparkline" id="s3"></div>
+    <div class="sparkle" id="s3"></div>
     <div class="percentile" id="p3">23rd Percentile</div>
     <div class="activity_type">Out in the Conference Center</div>
 
@@ -28,16 +29,19 @@
     </div>
 
     <div class="evalpara">
-        Perhaps you could <div class="evaluation" id="p5">spend more time </div> job of <div class="evaluation_activity" id="a5">seeing the city</div>
+        Perhaps you could <div class="evaluation" id="p5">spend more time </div>
+        <div class="evaluation_activity" id="a5">attending sessions</div>
     </div>
 
-    <div>
-        For your information, this data will be forwarded to your home institution
+    <div id="closing">
+        For your information, this data will be forwarded to your home institution. Thank you for your participation!
     </div>
 
-    <div>
+    <div id="tweet">
         Feedback? Tweet to #ChiCCP2014
     </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}" type="text/javascript"></script>
 
 </body>
 </html>
