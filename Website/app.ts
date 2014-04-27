@@ -37,10 +37,10 @@ function randomData() {
     return data;
 }
 
-function drawBar(x) {
+function drawBar(html, data) {
     
-    var s = Math.round(Math.random() * 100) + ' percentile';
-    x.textContent = s;
+    var s = data + ' percentile';
+    html.textContent = s;
 }
 
 window.onload = () => {
@@ -48,7 +48,9 @@ window.onload = () => {
     sparkline('#s2', randomData());
     sparkline('#s3', randomData());
 
-    d3.selectAll('.percentile ').each(function (s) { drawBar(this) });
+    var threeDims = [Math.round(Math.random() * 100), Math.round(Math.random() * 100), Math.round(Math.random() * 100)];
+
+    d3.selectAll('.percentile ').data( threeDims ).each(function (d) { drawBar(this, d) });
 
 
 };
