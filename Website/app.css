@@ -1,0 +1,14 @@
+﻿body
+{
+    background-color: black;
+    font-family: 'Segoe UI', sans-serif        
+}
+
+div
+{
+    color: white;
+}
+
+span {
+    font-style: italic
+}
