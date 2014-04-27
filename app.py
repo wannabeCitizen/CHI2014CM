@@ -2,6 +2,7 @@ import os
 from urlparse import urlparse
 from flask import Flask
 from flask import render_template
+from flask import request
 # from flask.ext.mongoengine import MongoEngine
 from pymongo import MongoClient
 from pymongo import Connection
@@ -19,6 +20,7 @@ else:
 	client = MongoClient('localhost',27017)
 	db = client.critical_make
 	collection = db.people
+	print "made connection!"
 
 
 
@@ -33,6 +35,22 @@ else:
 def index():
 	return render_template('index.html')
 
+@app.route('/data', methods=['GET','POST'])
+def data():
+	error = None
+	if request.method == 'GET':
+		person = request.args.get('personId')
+		receiver = request.args.get('receiverId')
+		myData = {person:receiver}
+		collection.insert(myData)
+		return "Thanks!"
+
+# @app.route('/me/<my_id>',methods=['GET','POST'])
+# def view_me():
+# 	return render_template()
+
+
+
 
 # @app.route('/user/<username>', methods=['GET','POST'])
 # def user_profile(username):
@@ -40,7 +58,4 @@ def index():
 # 	return render_template('user.html', user=user)
 
 if __name__ == '__main__':
-	app.run()
-	#Change this later
-	# port = int(os.environ.get('PORT', 5000))
-	# app.run(host='0.0.0.0', port=port)))
+	app.run(debug=True, host='0.0.0.0', port=5000)
