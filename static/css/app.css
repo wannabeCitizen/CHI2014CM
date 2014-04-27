@@ -1,0 +1,62 @@
+﻿body
+{
+    background-color: black;
+    font-family: 'Segoe UI', sans-serif        
+}
+
+div
+{
+    color: white;
+    font-size: large;
+    margin-left: 40px;
+}
+
+div.evalpara 
+{
+    padding-top: 2em;
+}
+
+div#content
+{
+    margin-left: 0px;
+    padding-bottom:1em;
+}
+
+div.evaluation
+{
+    font-size: 200%;
+    font-family: 'Courier New';
+    display: inline;
+    margin-left: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-style:italic;
+    font-variant: small-caps;
+}
+
+div.evaluation_activity
+{
+    font-family: 'Courier New';
+    font-size: 150%;
+    font-style: italic;
+    display: inline;
+    font-variant: small-caps;
+    margin-left: 0px;
+}
+
+div#closing
+{
+    padding-top: 2em;
+}
+
+div#tweet
+{
+    padding-top: 2em;
+    font-size:smaller;
+    font-style: italic;
+    margin-left: 4px;
+}
+
+span {
+    font-style: italic
+}
